@@ -1,0 +1,960 @@
+COMPUTER PROGRAMMING
+
+A program requires CPU and RAM
+
+
+                    High Voltage
+                           |
+                           |
+Machine Language ------>   1/0   ------> Binary Language
+                             |
+                             |
+                        Low Voltage
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+High Level Language--------                   File 
+                          |                     |                       ---------------------Memory (RAM)
+                          |                     |                       |
+                          |                     |                       |
+Mid Level Language--------|----------------  Program   -----------------|
+                          |                     |                       |
+                          |                     |                       |
+                          |                     |                       ---------------------Processing (CPU)   CPU Memory---
+Low Level Language---------               Set Of Instruction                                                                |
+                                                                                                                            |
+                                                                                                                            |--- Cache
+                                                                                                                            |
+                                                                                                                            |--- Register
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+JAVA
+
+JDK - Java Development Kit              javac
+JRE - Java Runtime Environment          java
+JVM - Java Virtual Machine              jit
+
+
+
+Source Code -----------> Byte Code -----------> Machine Code
+
+
+javac ProgramName.java   --------------->   Compile
+java ProgramName         --------------->   Run
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+LIBRARY IN JAVA
+
+Library - Set of files which contains frequently used logics and consist of large number of methods which are commonly used.
+
+In java library there are many jar files (.jar - java archive) these are compressed files.
+It consist of many .class files.
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+FUNDAMENTAL CONCEPTS
+
+=> Data Type
+=> Variables
+=> Method
+=> Object
+=> Class
+=> Conditional Statements
+=> Loops
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+DATA TYPE
+
+Data type used to tell the type of data a variable can store.
+eg. int, byte, short, long, float, boolean, double, char
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+VARIABLE
+
+Named memory location.
+Container.
+Way to represent memory location.
+
+------------------------------------------------------------
+| Name Of Variable |      Value      | Memory Address      |
+|------------------|-----------------|---------------------|
+| num1             | 10              | 000                 |
+| x                | 25              | 001                 |
+| age              | 18              | 002                 |
+| gender           | m               | 003                 |
+--------------------------RAM-------------------------------
+
+
+To store a data in variable first we need to declare it
+
+
+STEP 1 : Variable Declaration
+
+SYNTAX : data_type name_of_variable;
+
+eg. int x;      
+float num;
+char characterVariable;
+
+
+STEP 2 : Variable Initialization
+
+SYNTAX : name_of_variable = value;
+
+eg. x=10;   
+num=54.6f
+characterVariable = 'A';
+
+
+We can declare and initialize the variable in a single line also
+
+SYNTAX : data_type name_of_variable = value;
+
+eg.  int number = 5;
+float no = 1.5f;
+char ch = 'A';
+
+
+Types of Variables ->
+
+1) INSTANCE VARIABLE
+
+# yeh variables directly class ke andar hote hai
+# har object ke pass iski apni ek copy hoti hai
+
+2) STATIC VARIABLE
+
+# these are class level variables 
+# all objects will share the same single copy
+
+3) LOCAL VARIABLE
+
+# yeh variable function ke andar hote hai
+# tbkt function chalega tbtk iski life rahegi
+# Local Variable m koi default value nahi hoti hai
+# can only be used when declared as well as initialized 
+
+
+
+                                                 Instance Variables
+                                                    .............
+                                                    .    ----   .
+                                                    .  a |  |   .
+                                                    .    ----   .
+obj 1  ----------------------------------------->   .           .  -------------------------------------
+                                                    .    ----   .                                       |
+                                                    .  b |  |   .                                       |
+                                                    .    ----   .                                       |
+                                                    .............                                       |
+                                                                                                        |
+                                                                                                        v
+                                                 Instance Variables
+                                                    .............                                   .............                           
+                                                    .    ----   .                                   .           .
+                                                    .  a |  |   .                                   .           .
+                                                    .    ----   .                                   .    ----   .
+obj 2  ----------------------------------------->   .           .  ------------------------------>  .  c |  |   . Static Variable
+                                                    .    ----   .                                   .    ----   .
+                                                    .  b |  |   .                                   .           .
+                                                    .    ----   .                                   .           .
+                                                    .............                                   .............
+
+                                                                                                        ^
+                                                 Instance Variables                                     |
+                                                    .............                                       |   
+                                                    .    ----   .                                       |
+                                                    .  a |  |   .                                       |
+                                                    .    ----   .                                       |
+obj 3  ----------------------------------------->   .           .  --------------------------------------
+                                                    .    ----   .
+                                                    .  b |  |   .
+                                                    .    ----   .
+                                                    .............
+
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+METHOD
+
+A way to perform some task
+
+SYNTAX:        return_datatype name_of_method (Parameters/Arguments){
+                    // code or logic
+               }
+
+eg.            int addTwoNumber(int x, int y){
+                  return x+y;
+               }
+
+
+METHOD SIGNATURE
+
+public int sum (int a, int b){
+    // method body
+}
+
+public              ->      Access Specifier
+int                 ->      Return Type
+sum                 ->      Method Name
+int a, int b        ->      Parameters
+sum (int a, int b)  ->      Method Signature
+
+
+Method Signature = Name of method + Arguments of method
+
+
+JAVA RULE : kisi bhi ek class m same signature ke 2 methods nahi ho sakte hai
+
+# void main (String[] args)
+# public static void main(String[] args)
+they both are same methods can not be used in a same class
+
+# void main(String[] args, int a)
+# public static void main(String[] args)
+they both are different methods could be used in a same class
+
+
+Static Methods
+
+Static methods could be called without making objects and non static methods could only be called with the help of object.
+
+
+We can call a static method in non static method without making object
+We can call non static method in non static method without making object
+We can call static method in static method without making object
+We cannot call non static method in static method without making object
+
+
+In main method we use static (public static void main (String[] args)) as when java run our code JVM could call it without making object.
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+OBJECT
+
+Ojbects are real word entities(car, bus, dog).
+Ojbects are instance of class.
+
+---------------------------------------------------
+| Any real world object = Properties + Behaviour  |
+| Ojbects in OOPs       = Variables  + Methods    |
+---------------------------------------------------
+
+SYNTAX    ClassName objectName = new ClassName();
+                         |
+                         |
+                         ---> reference variable
+
+eg. Suppose there is a class HumanBeing
+
+
+public class HumanBeing {
+    String name;
+    int age;
+    long mobileNumber;
+
+    void walk(){
+        System.out.println("Walking");
+    }
+}
+
+
+Now to make object
+
+
+HumanBeing obj1 = new HumanBeing();
+
+        obj1.name = "Adnan";
+        obj1.age = 21;
+        obj1.mobileNumber = 999999;
+
+        obj1.walk();
+
+
+
+-------------------------------------
+| Class  = Logical Representation   |
+| Ojbect = Physical Representation  |
+-------------------------------------
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+CLASS
+
+It is a template/blueprint from which object are created.
+Defines the core properties and functions.
+
+
+-----------------------------------------------------
+| Class  = Attributes/Variables + Functions/Methods |
+-----------------------------------------------------
+
+SYNTAX      
+class NameOfClass{
+    // variables
+    // methods
+}
+
+eg.     
+public class HumanBeing {
+    String name;
+    int age;
+
+    void walk(){
+        System.out.println("Walking");
+    }
+    
+}
+
+
+-------------------------------------
+| Class  = Logical Representation   |
+| Ojbect = Physical Representation  |
+-------------------------------------
+
+
+There are multiple types of variables in Class - 
+
+Types of Variables ->
+
+1) INSTANCE VARIABLE
+
+# yeh variables directly class ke andar hote hai
+# har object ke pass iski apni ek copy hoti hai
+
+2) STATIC VARIABLE
+
+# these are class level variables 
+# all objects will share the same single copy
+
+3) LOCAL VARIABLE
+
+# yeh variable function ke andar hote hai
+# tbkt function chalega tbtk iski life rahegi
+# Local Variable m koi default value nahi hoti hai
+# can only be used when declared as well as initialized 
+
+
+
+                                                 Instance Variables
+                                                    .............
+                                                    .    ----   .
+                                                    .  a |  |   .
+                                                    .    ----   .
+obj 1  ----------------------------------------->   .           .  -------------------------------------
+                                                    .    ----   .                                       |
+                                                    .  b |  |   .                                       |
+                                                    .    ----   .                                       |
+                                                    .............                                       |
+                                                                                                        |
+                                                                                                        v
+                                                 Instance Variables
+                                                    .............                                   .............                           
+                                                    .    ----   .                                   .           .
+                                                    .  a |  |   .                                   .           .
+                                                    .    ----   .                                   .    ----   .
+obj 2  ----------------------------------------->   .           .  ------------------------------>  .  c |  |   . Static Variable
+                                                    .    ----   .                                   .    ----   .
+                                                    .  b |  |   .                                   .           .
+                                                    .    ----   .                                   .           .
+                                                    .............                                   .............
+
+                                                                                                        ^
+                                                 Instance Variables                                     |
+                                                    .............                                       |   
+                                                    .    ----   .                                       |
+                                                    .  a |  |   .                                       |
+                                                    .    ----   .                                       |
+obj 3  ----------------------------------------->   .           .  --------------------------------------
+                                                    .    ----   .
+                                                    .  b |  |   .
+                                                    .    ----   .
+                                                    .............
+
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+STATIC KEYWORD
+
+public static void main(String[] adnan){
+
+}
+
+here we are using static because static methods can be called without making objects
+
+
+Static methods
+
+We can call static method in a non static method without object.
+We can call non static method in a non static mehtod without object.
+We cannot call non static method in a static method for this we need to make object of that non static method.
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+CONDITIONAL STATEMENT
+
+Also called decision-making statements.
+Decides which statements to execute under which situation.
+Control the flow of program based on certain conditions.
+
+
+IF
+
+if(condition){
+
+}
+
+
+IF ELSE
+
+if (condition) {
+            
+} else {
+            
+}
+
+
+IF ELSE IF
+
+if(condition1){  
+ 
+} else if(condition2){  
+
+} else if(condition3){  
+
+} else{  
+
+}  
+
+
+NESTED IF
+
+
+if (condition) {
+   
+    if (condition) {
+            
+    } else {
+            
+    }
+            
+} else {
+
+    if (condition) {
+            
+    } else {
+            
+    }
+            
+}
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+LOOPS
+
+Repeating same process multiple times until a specific condition satisfied.
+
+Without amy condition loop will do the same for infinity.
+
+
+FOR LOOP
+
+
+initialize variable
+        |
+        v
+  check condition
+        |
+        v
+   execute body
+        |
+        v
+  update variable
+        |
+        v
+  repeat or exit
+
+
+SYNTAX
+
+for(initialization; condition; increment/decrement){    
+//statement or code to be executed    
+}    
+
+
+eg. 
+CODE
+
+public class ForExample {  
+    public static void main(String[] args) {  
+        //Code of Java for loop  
+        for(int i=1;i<=10;i++){  
+            System.out.println(i);  
+        }        
+    }  
+}  
+
+OUTPUT
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+WHILE LOOP
+
+  check condition
+        |
+        v
+if true, execute body
+        |
+        v
+  update variable
+        |
+        v
+  repeat or exit
+
+
+SYNTAX
+
+while (condition){    
+//code to be executed   
+Increment / decrement statement  
+}    
+
+
+eg.
+CODE
+
+public class WhileExample {  
+    public static void main(String[] args) {  
+        int i=1;  
+        while(i<=10){  
+            System.out.println(i);  
+            i++;  
+        }  
+    }  
+}  
+
+OUTPUT
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+DO WHILE LOOP
+
+   execute body
+        |
+        v
+  check condition
+        |
+        v
+  if true, repeat
+        |
+        v
+     or exit
+
+
+SYNTAX
+
+do{    
+//code to be executed / loop body  
+//update statement   
+}while (condition);   
+
+
+eg.
+CODE
+
+public class DoWhileExample {    
+    public static void main(String[] args) {    
+        int i=1;    
+        do{    
+            System.out.println(i);    
+            i++;    
+        }while(i<=10);    
+    }    
+}
+
+OUTPUT
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+CONTINUE STATEMENT
+
+Jump to the next iteration of the loop immediately.
+It continues the current flow of the program and skips the remaining code at the specified condition.
+
+eg.
+CODE
+
+public class ContinueExample {  
+    public static void main(String[] args) {  
+        for(int i=1;i<=10;i++){  
+            if(i==5){  
+                continue;  
+            }  
+        System.out.println(i);  
+        }  
+    }  
+}  
+
+OUTPUT
+
+1
+2
+3
+4
+6
+7
+8
+9
+10
+
+(As you can see in the above output, 5 is not printed on the console. It is because the loop is continued when it reaches to 5)
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+BREAK STATEMENT
+
+The loop is immediately terminated and the program control resumes at the next statement.
+
+eg.
+CODE
+
+public class BreakExample {  
+    public static void main(String[] args) {  
+        for(int i=1;i<=10;i++){  
+            if(i==5){  
+                break;  
+            }  
+            System.out.println(i);  
+        }  
+    }  
+}  
+
+OUTPUT
+
+1
+2
+3
+4
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+ARRAY (Object of a dynamically generated class)
+
+Array are used to store multiple values in single variable, instead of declaring seperate variables for each value.
+An array is collection of similar type of data items stored at contagious memory location.
+
+
+SYNTAX
+
+int[] a;                --------> array declaration
+
+Array Declaration different techniques :
+
+=> data_type[] name_of_array;
+=> data_type []name_of_array;
+=> data_type name_of_array[];
+
+a = new int[5];         --------> array initialization or memory allocation
+            |
+            |
+            V
+        array size
+
+
+------OR------
+
+
+int[] a = new int[5];       (Same as class)
+
+
+                    0   1   2   3   4
++---+              +---+---+---+---+---+
+|   |    ---->     |   |   |   |   |   |  
++---+              +---+---+---+---+---+
+  a                a[0] a[1]........a[4]        -------> array index
+
+int[] a = new int[10];
+(when we will use (a.length) we get the length of the 'a' array i.e. 10)
+
+
+CODE
+
+int[] arr = new int[7];
+
+arr[0] = 3;
+arr[1] = 5;
+arr[2] = 70;
+arr[3] = 15;
+arr[4] = 11;
+arr[5] = 8;
+arr[6] = 1;
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+ESCAPE SEQUENCE
+
+Character preceded by backslash (\)
+These escape characters are used to perform some special kind of task
+
+
+NEW LINE CHARACTER ("\n")
+
+this moves our cursor to next line
+
+
+println V/S printed
+
+System.out.println();
+this prints a new line character along
+
+System.out.print();
+this dont print a new line character
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+INPUT FROM USER
+
+We use java Scanner Class which allow us to take input from the console
+it belons to java.util package
+when we need to use Scanner in our program we would need to write
+
+import java.util.Scanner;
+
+now to take input we need to make a object of Scanner Class
+
+Scanner sc = new Scanner(System.in);
+
+System.in -> System ek class h jisme 'in' naam ka variable h
+
+for input of number 
+
+int x = sc.nextInt();
+(Similarly we could do for other datatypes also)
+
+
+When we use System.out.println();
+
+this system is in the library and system is a class file
+System.class is in the java.lang folder
+
+java.lang -> it means there is a 'java' folder and inside it have a 'lang' folder where we have 'System.class'
+
+java.lang is in rt.jar
+
+if we open we could see in System.class file there would be written (package java.lang)
+
+in same way Scanner class is in java.util folder
+
+so it would have (package java.util)
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+PACKAGE 
+
+Package is nothing just a folder
+A java package groups of similar classes, interfaces and sub-packages 
+
+
+SYNTAX-
+
+package x.y.z
+
+class Demo{
+
+}
+
+
+VIRTUAL REPRESENTATION
+
+-----
+| X |----------
+-----          |
+               |
+               |               
+               |               
+             -----
+             | Y |----------
+             -----          |
+                            |
+                            |               
+                            |               
+                          -----
+                          | Z |
+                          -----
+                            |
+                            |
+                            |
+                            |   
+                            -------------> class Demo
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+
+
+IMPORT 
+
+If we want to use any class from different package we need to tell our program from where it is coming 
+
+eg-
+
+package A.B.C;
+import java.util.Scanner;
+
+class Demo{
+    public static void main(String[] args){
+
+        System.out.println("Adnan");
+        Scanner sc = new Scanner(System.in);
+
+    }
+}
+
+RULE : import statement comes after package
+
+import java.util.Scanner;
+
+
+--------
+| java |--------
+--------       |
+               |
+               |               
+               |               
+             --------
+             | util |--------
+             --------       |
+                            |
+                            |               
+                            | 
+                            V              
+                         Scanner --------> this is a class
+
+
+
+in import java.util.Scanner;
+
+java.util.Scanner ---------> Fully Qualified name
+
+Fully Qualified Name -> Complete name of class including the package name to which that class belongs
+
+
+QUESTION - When we are using "System.out.println();" we are using System class from java.lang library but in code we do not import "java.lang" WHY?
+
+ANSWER - java.lang contains the basic and fundamental classes that are important for building a java program
+
+
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
