@@ -1221,7 +1221,7 @@ Dog dogObj = new Dog("Scooby", 5);
 
 MAVEN
 
-
+Maven is a build tool.
 
 
 
