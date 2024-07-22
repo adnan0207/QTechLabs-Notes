@@ -1224,6 +1224,203 @@ MAVEN
 Maven is a build tool.
 
 
+                        -------------------------
+                        | Software/Application  |
+                        -------------------------
+                                    |
+                                    |
+                                    |
+                                    V
+                                -----------
+                                | Project |
+                                -----------
+                                    |   
+                                    |
+                                    |
+                                    V
+            --------------------------------------------------------
+            | Folder in which files are stored in an organised way |
+            --------------------------------------------------------
+
+
+BUILD
+
+Compile
+.class files
+
+Package 
+jar files
+
+
+Deployment 
+
+Run the application on local or server machine
+
+
+Maven 
+
+# compile - it could compile our file (.class file) 
+# package - it could make JAR file 
+# includes libraries in our project (these could be external libraries) these are imported to make our work easy. 
+# These libraries are also called dependencies (Maven helps in dependency management) 
+# Standard way to organise our project 
+# Project version management 
+
+Other build tools - Ant, Gradle
+
+
+What after creating maven project looks like?
+
+
+-------------------
+| Project Folder  |
+-------------------
+        |
+        |
+        |       --------
+        --------| src  |
+        |       --------
+        |           |
+        |           |        --------
+        |           ---------| main |
+        |           |        --------
+        |           |           |
+        |           |           |        --------
+        |           |           ---------| java |
+        |           |           |        --------
+        |           |           |
+        |           |           |        ------------
+        |           |           ---------| resource |
+        |           |                    ------------
+        |           |        --------
+        |           ---------| test |
+        |                    --------
+        |                       |
+        |                       |        --------
+        |                       ---------| java |
+        |                       |        --------
+        |                       |
+        |                       |        ------------
+        |                       ---------| resource |
+        |                                ------------
+        |
+        |
+        |
+        |       -----------
+        --------| target  |
+        |       -----------
+        |
+        |
+        |
+        |       ------------
+        --------| pom.xml  |
+                ------------
+
+
+
+------------
+| pom.xml  |
+------------
+
+Most Important File
+
+P - Project
+O - Object
+M - Model
+
+It captures the state and behaviour of our project.
+
+yeh file project ko object ke form me model krti hai.
+
+This file contains all the information related to our project. example name, dependencies, version, libraries used, etc.
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>com.adnan</groupId>
+  <artifactId>15June2024</artifactId>
+  <version>1.0.0</version>
+  
+  <name>employeemanagement</name>
+  
+  <packaging>jar</packaging>
+</project>
+
+
+<modelVersion>4.0.0</modelVersion> -------> NEVER TOUCH THIS
+
+<groupId>com.adnan</groupId>              -----|
+<artifactId>15June2024</artifactId>            |----> These three are called maven co-ordinates
+<version>1.0.0</version>                  -----|
+
+
+We make files in src/main/java, as it is a rule to write your code here. 
+If we made multiple packages and multiple source/class file 
+now we have so many different class files and in different packages thus we can't compile them one by one 
+so we would need to use Maven 
+
+STEPS 
+
+go to CMD 
+go to the directory 
+used "mvn compile" 
+now in our pom.xml file add <packaging>jar</packaging>
+So maven would understand that it needs to make a JAR file 
+now we use "mvn package" 
+now we could see in target folder a JAR file is there 15June2024-1.0.0.jar
+15June2024-1.0.0.jar -------> <artifactId>-<version>.jar
+                                    |           |
+                                    V           V
+                                15June2024    1.0.0
+
+Now if we use "mvn clean" it would delete our target folder, basically target folder is made on compile time. 
+Now if we use "mvn install" it will compile our program then package it and then would take our jar file and copy it to other location (.m2 maven repository)
+
+mvn compile -> compile
+mvn package -> compile + jar
+mvn clean -> delete target folder
+mvn install -> compile + jar + copy jar to .m2 
+
+.m2
+
+Local maven repository.
+When we run mvn install our project (.jar) stores here.
+Also helps in dependency management, if in our project we have use external libraries it would also be stored here.
+
+How does maven manage dependencies? How to use external dependencies?
+
+Step 1 open pom.xml
+Step 2 make a dependencies tag <dependencies>	</dependencies>
+Step 3 Search on internet for your required dependency. example - if I want for UUID generation
+Step 4 Search maven java dependency for UUID generation
+Step 5 Now you would see different public remote maven repositories where multiple dependencies are uploaded.
+
+Dependencies ----> library ----> jar files 
+
+Step 6 Choose the dependency you want to use, then you choose the version of that dependency which you want in your project. 
+Step 7 After clicking on required version you would see a code (.xml code) inside dependency tag (<dependency>). 
+Step 8 Inside dependency tag (<dependency>) you would see maven coordinates written these coordinates are of dependency which you are taking.
+example - <dependency>
+		 	 <groupId>com.fasterxml.uuid</groupId>
+		 	 <artifactId>java-uuid-generator</artifactId>
+		 	 <version>3.1.4</version>
+		 </dependency>
+        
+Step 9 Copy it and paste in your project XML file inside dependency tag (<dependency>) which we made earlier.
+Step 10 Save all changes of your XML file.
+Step 11 You would see in your folder below jre system lib there is something new named "maven dependencies".
+
+Inside this there would jar files of the dependency which we imported in our project from internet. 
+Now you could easily use the classes and methods of that library/dependency in your project.
+You could also see these libraries present in .m2 directory.
+
+Question - How does maven keep track of different versions of our project? 
+Answer - Suppose you did some changes in your code added few features and want to make another package for your new version.
+Firstly you would need to open pom.xml 
+Under maven coordinates you would find a <version> tag would look like <version>1.0.0</version> now give it a new version <version>2.0.0</version>.
+Run "mvn install" 
+Now if you go to the .m2 folder you would see to different folders 1.0.0 and 2.0.0 both the folder would have different jar files.
+
 
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 
@@ -1240,9 +1437,6 @@ Maven is a build tool.
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
-
-
-
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
@@ -1276,10 +1470,6 @@ Maven is a build tool.
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
-
-
-
-
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
