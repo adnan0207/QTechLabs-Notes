@@ -1425,7 +1425,159 @@ Now if you go to the .m2 folder you would see to different folders 1.0.0 and 2.0
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 
 
+VERSION CONTROL
 
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.
+
+
+Local Version Control Systems -
+Many people’s version-control method of choice is to copy files into another directory (perhaps a time-stamped directory, if they’re clever). 
+This approach is very common because it is so simple, but it is also incredibly error prone. 
+It is easy to forget which directory you’re in and accidentally write to the wrong file or copy over files you don’t mean to.
+
+Centralized Version Control Systems - 
+These systems (such as CVS, Subversion, and Perforce) have a single server that contains all the versioned files, 
+and a number of clients that check out files from that central place. 
+The most obvious is the single point of failure that the centralized server represents. If that server goes down for an hour, 
+then during that hour nobody can collaborate at all or save versioned changes to anything they’re working on. 
+If the hard disk the central database is on becomes corrupted, and proper backups haven’t been kept, you lose absolutely everything.
+
+Distributed Version Control Systems - 
+In Distributed Version Control Systems (such as Git), clients don’t just check out the latest snapshot of the files.
+Rather, they fully mirror the repository, including its full history. 
+Thus, if any server dies, and these systems were collaborating via that server, any of the client repositories 
+can be copied back up to the server to restore it. Every clone is really a full backup of all the data.
+
+REPOSITORY / REPO
+
+Repository means container where something is stored.
+Repository is nothing but a folder.
+
+Files and folders starting from '.' are called hidden files and folders.
+
+Git is a Distributed Version Control Systems that tracks version of files. Also enables multiple developers to work together porperly.
+
+GIT COMMANDS
+
+git init                        -------> initialize a local Git repository
+git status                      -------> show our files are being tracked or not
+git add <file name>             -------> to track a particular file or to move a file from working directory to staging area
+git add .                       -------> to track all files in one go or to move all the file from working directory to staging area 
+git commit -m "msg"             -------> to commit the changes or make a checkpoint
+git log                         -------> display all your commits
+git log --oneline               -------> display all your commits in a single line 
+git checkout master/main        -------> go back to main / master last checkout
+git branch                      -------> tells you are on which branch
+git checkout -b <branch name>   -------> create a branch
+git merge <branch name>         -------> to merge a branch with your current branch
+git checkout <file name>        -------> discard changes of the file and replace with previous version
+git checkout .                  -------> discard all and track changes of all files and revert to last commit
+git switch <branch name>        -------> switch branch 
+git checkout <branch name>      -------> switch branch 
+git switch -c <branch name>     -------> create a branch
+
+BRANCH 
+
+Alternate timeline of project. 
+Create separate context where one can try new things. 
+Changes made in one branch don't impact other branches.
+
+Working directory - Jidhar hum kaam kar rahe hain. When we do "git status" we see red colour files on what files we work on. 
+Staging area - Jab hum "git add ." command chalate hai. When we do "git status" we see green colour files as they are ready to commit.
+Git repository - Jab Ham commit karte hain tab idhar.
+
+Question - Why do some devices have main and in some devices master? 
+Answer - Back in 2020, during the rise of Black Life Matters (BLM) movement Github decided to drop some of it's Controversial terms.
+like master, slave, whitelist and blacklist 
+These words were unnecessary reference to slavery and they were replace with new words. 
+master -------> main 
+slave -------> secondary 
+Blacklist -------> deny list 
+Whitelist -------> allow list
+
+When we run "git log --oneline" we would see,
+
+509dc92 (HEAD -> main) maven notes updated
+c5a376f note before maven
+b3ce0d9 new changes
+4e0d267 adding few more concepts
+f8f1f2c from today manage this on git hub 19July2024
+
+What is this HEAD?
+
+HEAD is a reference to our current checkout commit.
+A pointer pointing to our last checkout 
+
+Where is HEAD present? 
+If we go in .git folder of our repo we could see a file named HEAD. 
+
+What is in this HEAD file?
+If you open it we could see something like,
+
+ref: refs/heads/main
+
+If we go and look in .git folder we would find a folder name refs and in refs there would be another folder named heads 
+and in heads their would be an file name master/main if you open this file you would see a commit id and 
+this would be the same to the commit on which HEAD is pointing.
+
+--------
+| .git |----------
+--------         |
+                 |
+                 |               
+                 |               
+             --------
+             | refs |----------
+             --------         |
+                              |
+                              |               
+                              |               
+                          ---------
+                          | heads |
+                          ---------
+                              |
+                              |
+                              |
+                              |   
+                              -----------> main/master
+                                                |
+                                                |
+                                                |
+                                                |      
+                                                V
+                                509dc928a1831c57979d9eb254b4365ea12ce7f3
+                                (last commit id on which HEAD is pointing)
+
+
+Until now we were managing our project on our local computer/system and using all the VCS features as we installed git locally on our system. 
+But what if due to any accident our drive crashed or we deleted our repo. 
+The main purpose of git is to maintain history and here the purpose is quiet not getting fulfilled. 
+Also what if multiple developers across the world want to work on the same project. 
+So we require a remote machine where our code will be stored in if anybody wants to work on it, 
+that developer could easily get it from there to their personal system. 
+To host a repository on cloud or to remotely host a repo we use services like Github, Gitlab, Bitbucket. 
+These platform is allow developer to create, store, manage and share their codes and also version control it.
+
+
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
+=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
 =x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x=x
